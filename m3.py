@@ -5,7 +5,7 @@ import os
 from pathlib import Path
 
 AUDIO = 'bad_apple.wav' # get audio controller
-DIRECTORY = 'unshared/5x_res' # get frames directory
+DIRECTORY = 'frames' # get frames directory
 FPS = 30 # set frames per second
 
 # Use os.scandir() to count files

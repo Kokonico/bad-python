@@ -1,8 +1,6 @@
 # BAD PYTHON !!
-run bad apple in the browser.
+run bad apple in the terminal.
 
-currently configured for Iterm2 & python 3.12
+now less scuffed.
 
-may not work.
-
-run "m2.py" to play.
+run "m3.py" to play.

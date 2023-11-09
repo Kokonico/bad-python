@@ -5,18 +5,20 @@ import cv2
 
 frame_count = 0
 
+VIDEO = 'badapple.mp4'
+
 # Open the video file
-cap = cv2.VideoCapture('badapple.mp4')
+cap = cv2.VideoCapture(VIDEO)
 while(cap.isOpened()):
     # Read the next frame
     ret, frame = cap.read()
 
     if ret is True:
-
+        # save frame as JPEG file
         imgfile = f'imgs/frame{frame_count}.jpg'
-        # Convert the frame to ASCII art
         cv2.imwrite(imgfile, frame)
 
+        # Convert the frame to ASCII art
         ascii_art = ascii_magic.from_image(imgfile)
 
         frame_count += 1

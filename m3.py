@@ -21,7 +21,7 @@ try:
     stdscr = curses.initscr()
     curses.noecho()
     curses.cbreak()
-except:
+except curses.error:
     print(EnvironmentError("Error initializing curses, are you using a terminal? (the VSCode output menu doesn't work)"))
     exit(1)
 
@@ -43,7 +43,11 @@ try:
                 
                 resized_frame = '\n'.join(line[:width] for line in frames[current_frame].split('\n')[:height])
                 
-                stdscr.addstr(0, 0, resized_frame)
+                try:
+                    stdscr.addstr(0, 0, resized_frame)
+                except curses.error:
+                    print(EnvironmentError("Error drawing frame, is your terminal too small?"))
+                    exit(1)
                 stdscr.refresh()
             
         last_frame = current_frame

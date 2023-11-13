@@ -17,9 +17,13 @@ frames = [open(Path(DIRECTORY) / f'frame{i+1}.txt').read() for i in range(fcount
 badapple = sa.WaveObject.from_wave_file(AUDIO)
 
 # Initialize curses
-stdscr = curses.initscr()
-curses.noecho()
-curses.cbreak()
+try:
+    stdscr = curses.initscr()
+    curses.noecho()
+    curses.cbreak()
+except:
+    print(EnvironmentError("Error initializing curses, are you using a terminal? (the VSCode output menu doesn't work)"))
+    exit(1)
 
 last_frame = -1
 
